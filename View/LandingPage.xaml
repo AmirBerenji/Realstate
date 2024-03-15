@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Realstate.View.LandingPage"
+             Title="LandingPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="SectionTemplate">
+                <Border WidthRequest="120" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="#F0F0F1"  >
+                    <Label x:Name="label" Text="{TemplateBinding Content}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CheckedStates">
+                                <VisualState x:Name="Checked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#4C65FF"/>
+                                        <Setter TargetName="label" Property="Label.Opacity" Value="1"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Border>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="auto,auto,*" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="32" BackgroundColor="#FEFEFE" RowSpacing="32" >
+        <Grid HorizontalOptions="FillAndExpand">
+            <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                <Label Text="Welcome Back" TextColor="Black" Opacity="0.5" FontSize="12"/>
+                <Label Text="Sophie" TextColor="Black" FontAttributes="Bold" FontSize="15"/>
+            </VerticalStackLayout>
+            <Border WidthRequest="48" HeightRequest="48" VerticalOptions="Center" HorizontalOptions="End" StrokeShape="RoundRectangle 24, 24, 24, 24" StrokeThickness="2" Stroke="Blue">
+                <Image Source="https://randomuser.me/api/portraits/women/21.jpg"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1"  RowDefinitions="Auto,Auto,Auto" HorizontalOptions="FillAndExpand">
+            <Label Text="New York" TextColor="Black" FontSize="24" FontAttributes="Bold" VerticalOptions="Center"/>
+            <Image Source="https://workbridgeteam.com/assets/content/images/tecsuport.jpg" WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"/>
+            <Line Grid.Row="1" X1="0" X2="1000" Stroke="Gray"/>
+            <ScrollView Orientation="Horizontal" Grid.Row="2" HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout x:Name="SectionList" Margin="0,20,0,0" BindableLayout.ItemsSource="{Binding Sections}" Spacing="10">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton Content="{Binding .}" ControlTemplate="{StaticResource SectionTemplate}"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+            </ScrollView>
+        </Grid>
+        
+        
+    </Grid>
+    
+</ContentPage>
