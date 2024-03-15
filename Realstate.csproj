@@ -64,11 +64,10 @@
 
 	<ItemGroup>
 	  <Folder Include="Control\" />
-	  <Folder Include="Model\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\Details.xaml">
+	  <MauiXaml Update="View\DetailsPage1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\LandingPage.xaml">

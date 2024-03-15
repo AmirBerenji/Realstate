@@ -8,5 +8,6 @@ public partial class LandingPage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = new LandingViewModel();
+		(SectionList.Children[0] as RadioButton).IsChecked = true;
 	}
 }

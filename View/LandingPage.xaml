@@ -17,6 +17,14 @@
                                     <VisualState.Setters>
                                         <Setter Property="BackgroundColor" Value="#4C65FF"/>
                                         <Setter TargetName="label" Property="Label.Opacity" Value="1"/>
+                                        <Setter TargetName="label" Property="Label.TextColor" Value="White"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#F0F0F1"/>
+                                        <Setter TargetName="label" Property="Label.Opacity" Value="0.5"/>
+                                        <Setter TargetName="label" Property="Label.TextColor" Value="Black"/>
                                     </VisualState.Setters>
                                 </VisualState>
                             </VisualStateGroup>
@@ -50,7 +58,28 @@
                 </HorizontalStackLayout>
             </ScrollView>
         </Grid>
-        
+        <CollectionView x:Name="colView" Grid.Row="2" ItemsSource="{Binding Properties}" VerticalScrollBarVisibility="Never" SelectionMode="Single" 
+                        SelectedItem="{Binding SelectedProperty}" SelectionChangedCommand="{Binding PropertySelected}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="20" VerticalItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="210" WidthRequest="160" >
+                        <VerticalStackLayout Spacing="10">
+                            <Border HeightRequest="160" StrokeThickness="0">
+                                <Image Source="{Binding DefaultImage}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            </Border>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Address}" TextColor="Black" FontSize="12" Opacity="0.5"/>
+                                <Label Text="{Binding Price, StringFormat='${0:###,###}'}" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+                        
         
     </Grid>
     
