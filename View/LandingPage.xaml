@@ -7,6 +7,20 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style TargetType="Grid" >
+                <Setter Property="VisualStateManager.VisualStateGroups" >
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected" >
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
             <ControlTemplate x:Key="SectionTemplate">
                 <Border WidthRequest="120" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="#F0F0F1"  >
                     <Label x:Name="label" Text="{TemplateBinding Content}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center"/>
