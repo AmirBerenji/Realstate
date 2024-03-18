@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Realstate.View.LandingPage"
              Title="LandingPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ct="clr-namespace:Realstate.Control">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -81,9 +82,9 @@
                 <DataTemplate>
                     <Grid HeightRequest="210" WidthRequest="160" >
                         <VerticalStackLayout Spacing="10">
-                            <Border HeightRequest="160" StrokeThickness="0">
+                            <ct:CustomBorder HeightRequest="160" StrokeThickness="0">
                                 <Image Source="{Binding DefaultImage}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                            </Border>
+                            </ct:CustomBorder>
                             <VerticalStackLayout>
                                 <Label Text="{Binding Address}" TextColor="Black" FontSize="12" Opacity="0.5"/>
                                 <Label Text="{Binding Price, StringFormat='${0:###,###}'}" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
