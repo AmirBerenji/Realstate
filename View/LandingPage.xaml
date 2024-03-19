@@ -73,6 +73,8 @@
                 </HorizontalStackLayout>
             </ScrollView>
         </Grid>
+        
+        
         <CollectionView x:Name="colView" Grid.Row="2" ItemsSource="{Binding Properties}" VerticalScrollBarVisibility="Never" SelectionMode="Single" 
                         SelectedItem="{Binding SelectedProperty}" SelectionChangedCommand="{Binding PropertySelected}">
             <CollectionView.ItemsLayout>
